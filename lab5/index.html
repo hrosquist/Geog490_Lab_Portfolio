@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lab 5: Spatial Analysis and Modeling in R</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 950px;
+      margin: 40px auto;
+      line-height: 1.6;
+      color: #222;
+      background-color: #fafafa;
+    }
+
+    h1, h2, h3 {
+      color: #243b53;
+    }
+
+    img {
+      width: 100%;
+      max-width: 900px;
+      display: block;
+      margin: 20px auto;
+      border: 1px solid #ccc;
+    }
+
+    .figure {
+      margin-bottom: 50px;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .caption {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Lab 5: Spatial Analysis and Modeling in R</h1>
+  <p><strong>Hailey Rosquist</strong></p>
+
+  <h2>Geography of Interest</h2>
+  <p>
+    For this lab, I used two main geographies of interest. For the cross-state metropolitan
+    boundary section, I selected the Portland-Vancouver-Hillsboro, OR-WA metropolitan
+    statistical area. This region is appropriate because it crosses the Oregon-Washington
+    state line and includes a large urban population centered around Portland, Oregon and
+    Vancouver, Washington. Using this area allowed me to compare census tracts from two
+    different states within one shared metropolitan boundary.
+  </p>
+
+  <p>
+    For the water-erasing workflow and hotspot analysis, I used King County and the
+    Seattle-Tacoma-Bellevue metropolitan area in Washington. King County is useful for the
+    erase_water() workflow because it contains significant water features, including Puget
+    Sound, Lake Washington, and other major water bodies. The Seattle metropolitan area is
+    also useful for hotspot analysis because income patterns vary strongly across the region,
+    especially between central Seattle, the Eastside, and more suburban or lower-income areas.
+  </p>
+
+  <div class="figure">
+    <h2>Figure 1: Cross-State Metropolitan Census Tracts</h2>
+    <img src="figures/figure1_portland_vancouver_metro_tracts.png" alt="Map of Portland-Vancouver-Hillsboro metro census tracts">
+    <p class="caption">Figure 1. Census tracts in the Portland-Vancouver-Hillsboro, OR-WA metropolitan area.</p>
+    <p>
+      This map shows census tracts within the Portland-Vancouver-Hillsboro metropolitan
+      statistical area. The metropolitan boundary is shown as an outline, while the tracts are
+      colored by state to distinguish Oregon tracts from Washington tracts. This figure
+      demonstrates that the selected CBSA crosses state lines, meeting the requirement for a
+      cross-state metropolitan area. After filtering the census tracts to the metropolitan
+      boundary, I used <code>nrow(portland_tracts)</code> to calculate the total number of
+      census tracts in the selected metro area.
+    </p>
+  </div>
+
+  <div class="figure">
+    <h2>Figure 2: Erase Water Workflow</h2>
+    <img src="figures/figure2_king_county_erase_water.png" alt="Median household income map of King County with water erased">
+    <p class="caption">Figure 2. Median household income in King County, Washington, with major water areas erased.</p>
+    <p>
+      This map shows median household income by census tract in King County, Washington
+      after applying the <code>erase_water()</code> workflow. I used ACS 2020 5-year median
+      household income data from table B19013. Before erasing water areas, I transformed the
+      data into an appropriate projected coordinate system using a CRS suggested through
+      <code>suggest_crs()</code>. This step is important because spatial operations like erasing
+      water and calculating areas work better in projected coordinate systems. The final map
+      removes major water areas so the land-based census tracts are easier to see and interpret.
+    </p>
+  </div>
+
+  <div class="figure">
+    <h2>Figure 3: Getis-Ord Hotspot Analysis</h2>
+    <img src="figures/figure3_seattle_income_hotspots.png" alt="Getis-Ord hotspot analysis of median household income in Seattle metro area">
+    <p class="caption">Figure 3. Getis-Ord hotspot analysis of median household income in the Seattle-Tacoma-Bellevue metro area.</p>
+    <p>
+      This map shows a Getis-Ord Gi* hotspot analysis of median household income in the
+      Seattle-Tacoma-Bellevue metropolitan area using ACS 2020 5-year estimates from table
+      B19013. The map categorizes tracts into high-income clusters, low-income clusters, and
+      areas that are not statistically significant. High-income clusters represent areas where
+      high median household income values are located near other high-income values. Low-income
+      clusters represent areas where lower-income tracts are located near other lower-income tracts.
+    </p>
+  </div>
+
+  <h2>Hotspot Analysis Trends</h2>
+  <p>
+    The Getis-Ord hotspot analysis shows clear spatial clustering in median household income
+    across the Seattle-Tacoma-Bellevue metropolitan area. High-income clusters are likely to
+    appear in areas such as Seattle’s wealthier neighborhoods and the Eastside, including places
+    near Bellevue, Redmond, Kirkland, and Mercer Island. These areas tend to have higher
+    household incomes because they are close to major employment centers, especially technology
+    and professional-sector jobs. They also often have higher housing costs, higher property
+    values, and greater access to economic resources.
+  </p>
+
+  <p>
+    Low-income clusters are more likely to appear in parts of south Seattle, south King County,
+    and portions of Pierce County. These areas may reflect more affordable housing patterns,
+    older suburban development, lower average wages, and greater racial and economic inequality
+    across the region. The pattern suggests that income is not randomly distributed across the
+    metro area. Instead, similar income levels tend to group together spatially. This likely
+    reflects the combined effects of housing markets, transportation access, job location,
+    historic patterns of segregation, and uneven investment across neighborhoods. Overall, the
+    hotspot analysis helps show where income advantage and disadvantage are geographically
+    concentrated within the Seattle metropolitan region.
+  </p>
+
+</body>
+</html>

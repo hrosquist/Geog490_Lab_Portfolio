@@ -67,22 +67,16 @@
   from King, Pierce, and Snohomish Counties in Washington. This geography is
   useful for spatial regression because the region contains strong variation
   in housing values, education, density, age, and neighborhood socioeconomic
-  conditions across urban and suburban areas.
+  conditions across urban and suburban areas. The analysis uses 2023 ACS 5 year 
+  estimates from the U.S. Census Bureau. Variables were selected to match Walker’s 
+  spatial regression example as closely as possible while applying the analysis
+  to a different metropolitan area.
 </p>
-
-<p>
-  The analysis uses 2023 ACS 5 year estimates from the U.S. Census Bureau.
-  Variables were selected to match Walker’s spatial regression example as
-  closely as possible while applying the analysis to a different metropolitan
-  area.
-</p>
-```
-
+    
   </div>
 
   <div class="section">
 
-```
 <h2>1. Geographically Weighted Regression</h2>
 
 <p>
@@ -90,16 +84,12 @@
   value as the dependent variable. The explanatory variables included median
   rooms, percent college educated, percent foreign born, percent white,
   median age, median structure age, percent owner-occupied housing,
-  population density, and total population.
-</p>
-
-<p>
-  The map below visualizes the local R² values from the GWR model using the
-  ColorBrewer YlOrRd color palette.
+  population density, and total population. The map below visualizes the local R^2 
+  values from the GWR model using the ColorBrewer YlOrRd color palette.
 </p>
 
 <p class="caption">
-  Figure 1. Geographically Weighted Regression Local R² Values
+  Figure 1. Geographically Weighted Regression Local R^2 Values
 </p>
 
 <img
@@ -109,7 +99,7 @@
 
 <p>
   The geographically weighted regression map shows that the model performs
-  differently across the Seattle metropolitan area. Higher local R² values
+  differently across the Seattle metropolitan area. Higher local R^2 values
   indicate neighborhoods where the explanatory variables better predict
   median home value. Lower values suggest that other factors may influence
   housing values in those areas. Stronger model performance appears in parts
@@ -118,13 +108,11 @@
   relationships between socioeconomic characteristics and housing values are
   spatially uneven across the Seattle region.
 </p>
-```
 
   </div>
 
   <div class="section">
 
-```
 <h2>2. K-Means Cluster Analysis</h2>
 
 <p>
@@ -154,13 +142,11 @@
   they still highlight meaningful spatial differences across the metropolitan
   area.
 </p>
-```
 
   </div>
 
   <div class="section">
 
-```
 <h2>Conclusion</h2>
 
 <p>
@@ -172,7 +158,6 @@
   methods show that spatial patterns in Seattle are highly uneven and
   geographically structured.
 </p>
-```
 
   </div>
 

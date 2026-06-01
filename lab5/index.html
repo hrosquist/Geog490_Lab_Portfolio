@@ -47,21 +47,18 @@
 
   <h2>Geography of Interest</h2>
   <p>
-    For this lab, I used two main geographies of interest. For the cross-state metropolitan
+    For this lab, I used two main geographies of interest. For the cross state metropolitan
     boundary section, I selected the Portland-Vancouver-Hillsboro, OR-WA metropolitan
     statistical area. This region is appropriate because it crosses the Oregon-Washington
     state line and includes a large urban population centered around Portland, Oregon and
     Vancouver, Washington. Using this area allowed me to compare census tracts from two
-    different states within one shared metropolitan boundary.
-  </p>
-
-  <p>
-    For the water-erasing workflow and hotspot analysis, I used King County and the
-    Seattle-Tacoma-Bellevue metropolitan area in Washington. King County is useful for the
-    erase_water() workflow because it contains significant water features, including Puget
-    Sound, Lake Washington, and other major water bodies. The Seattle metropolitan area is
-    also useful for hotspot analysis because income patterns vary strongly across the region,
-    especially between central Seattle, the Eastside, and more suburban or lower-income areas.
+    different states within one shared metropolitan boundary. For the water-erasing workflow 
+    and hotspot analysis, I used King County and the Seattle-Tacoma-Bellevue metropolitan area 
+    in Washington. King County is useful for the erase_water() workflow because it contains 
+    significant water features, including Puget Sound, Lake Washington, and other major water 
+    bodies. The Seattle metropolitan area is also useful for hotspot analysis because income 
+    patterns vary strongly across the region, especially between central Seattle, the Eastside, 
+    and more suburban or lower-income areas.
   </p>
 
   <div class="figure">
@@ -74,7 +71,7 @@
       colored by state to distinguish Oregon tracts from Washington tracts. This figure
       demonstrates that the selected CBSA crosses state lines, meeting the requirement for a
       cross-state metropolitan area. After filtering the census tracts to the metropolitan
-      boundary, I used <code>nrow(portland_tracts)</code> to calculate the total number of
+      boundary, I used nrow(portland_tracts) to calculate the total number of
       census tracts in the selected metro area.
     </p>
   </div>
@@ -85,10 +82,10 @@
     <p class="caption">Figure 2. Median household income in King County, Washington, with major water areas erased.</p>
     <p>
       This map shows median household income by census tract in King County, Washington
-      after applying the <code>erase_water()</code> workflow. I used ACS 2020 5-year median
+      after applying the erase_water() workflow. I used ACS 2020 5-year median
       household income data from table B19013. Before erasing water areas, I transformed the
       data into an appropriate projected coordinate system using a CRS suggested through
-      <code>suggest_crs()</code>. This step is important because spatial operations like erasing
+      suggest_crs(). This step is important because spatial operations like erasing
       water and calculating areas work better in projected coordinate systems. The final map
       removes major water areas so the land-based census tracts are easier to see and interpret.
     </p>
@@ -100,7 +97,7 @@
     <p class="caption">Figure 3. Getis-Ord hotspot analysis of median household income in the Seattle-Tacoma-Bellevue metro area.</p>
     <p>
       This map shows a Getis-Ord Gi* hotspot analysis of median household income in the
-      Seattle-Tacoma-Bellevue metropolitan area using ACS 2020 5-year estimates from table
+      Seattle-Tacoma-Bellevue metropolitan area using ACS 2020 5 year estimates from table
       B19013. The map categorizes tracts into high-income clusters, low-income clusters, and
       areas that are not statistically significant. High-income clusters represent areas where
       high median household income values are located near other high-income values. Low-income

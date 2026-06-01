@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lab 7 - Segregation and Diversity</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 950px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      background-color: #fafafa;
+      color: #222;
+    }
+
+    h1, h2, h3 {
+      color: #1f3b57;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 20px auto;
+      border: 1px solid #ccc;
+    }
+
+    .figure-caption {
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .section {
+      background: white;
+      padding: 25px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Lab 7: Segregation and Diversity</h1>
+  <p><strong>Hailey Rosquist</strong></p>
+  <p><strong>Course:</strong> GEOG 490/590</p>
+
+  <div class="section">
+    <h2>Geography of Interest</h2>
+    <p>
+      For this lab, I chose the Seattle-Tacoma-Bellevue MSA, represented by
+      King, Pierce, and Snohomish Counties in Washington. This region is useful
+      for studying segregation because it includes Seattle’s urban core,
+      surrounding suburbs, and nearby metropolitan communities with varied
+      racial and ethnic population patterns.
+    </p>
+
+    <p>
+      The analysis uses 2023 ACS 5-year Census tract data from table B03002.
+      The racial and ethnic groups included in the multigroup segregation
+      analysis are non-Hispanic white, non-Hispanic Black, non-Hispanic Asian,
+      and Hispanic residents.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>1. Multigroup Segregation Index</h2>
+
+    <p>
+      I ran the multigroup segregation index using the <code>mutual_total()</code>
+      and <code>mutual_local()</code> functions from the
+      <code>segregation</code> package. The map below shows local multigroup
+      segregation scores by Census tract. I used the ColorBrewer
+      <strong>YlOrRd</strong> color scheme.
+    </p>
+
+    <p class="figure-caption">
+      Figure 1. Local Multigroup Segregation Index in the Seattle-Tacoma-Bellevue MSA
+    </p>
+
+    <img
+      src="figures/figure1_seattle_msa_segregation.png"
+      alt="Local multigroup segregation index map for the Seattle-Tacoma-Bellevue MSA"
+    />
+
+    <p>
+      The local multigroup segregation index map shows that segregation is not
+      evenly distributed across the Seattle-Tacoma-Bellevue MSA. Some tracts have
+      higher local segregation values, meaning racial and ethnic groups are less
+      evenly distributed in those neighborhoods. Lower values appear in areas
+      with more mixed population patterns. These differences may reflect housing
+      costs, suburban growth, historical settlement patterns, and unequal access
+      to neighborhoods across the region.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>2. Asian Location Quotient</h2>
+
+    <p>
+      For the location quotient analysis, I focused on the non-Hispanic Asian
+      population. This variable was chosen because the Seattle region has visible
+      Asian population clusters, making it useful for comparing local
+      concentration with the overall MSA average. The data come from the 2023 ACS
+      5-year survey. I used the ColorBrewer <strong>PuBuGn</strong> color scheme.
+    </p>
+
+    <p>
+      A location quotient value above 1 means a tract has a higher Asian
+      population share than the MSA overall. A value below 1 means the tract has
+      a lower Asian population share than the MSA average.
+    </p>
+
+    <p class="figure-caption">
+      Figure 2. Asian Location Quotient in the Seattle-Tacoma-Bellevue MSA
+    </p>
+
+    <img
+      src="figures/figure2_seattle_msa_asian_lq.png"
+      alt="Asian location quotient map for the Seattle-Tacoma-Bellevue MSA"
+    />
+
+    <p>
+      The Asian location quotient map shows where Asian residents are more
+      concentrated compared with the overall MSA average. Tracts with higher
+      values have a larger Asian population share than the region as a whole.
+      These clusters partly align with the multigroup segregation map, but not
+      perfectly. This means Asian population concentration contributes to some
+      local segregation patterns, while the multigroup index also reflects the
+      distribution of white, Black, and Hispanic residents.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Conclusion</h2>
+
+    <p>
+      Overall, the two maps show related but different patterns. The multigroup
+      segregation index measures unevenness across several racial and ethnic
+      groups at once, while the Asian location quotient focuses only on one
+      group’s local concentration. Because of this, the maps overlap in some
+      areas but do not show identical patterns.
+    </p>
+  </div>
+
+</body>
+</html>

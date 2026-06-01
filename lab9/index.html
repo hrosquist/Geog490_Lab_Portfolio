@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lab 9 - Spatial Regression</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 950px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+      background-color: #fafafa;
+      color: #222;
+    }
+
+    h1, h2 {
+      color: #1f3b57;
+    }
+
+    .section {
+      background: white;
+      padding: 25px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 20px auto;
+      border: 1px solid #ccc;
+    }
+
+    .caption {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    code {
+      background-color: #efefef;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <h1>Lab 9: Spatial Regression</h1>
+
+  <p><strong>Hailey Rosquist</strong></p>
+  <p><strong>GEOG 490/590</strong></p>
+
+  <div class="section">
+
+```
+<h2>Geography of Interest</h2>
+
+<p>
+  For this lab, I chose the Seattle-Tacoma-Bellevue MSA using census tracts
+  from King, Pierce, and Snohomish Counties in Washington. This geography is
+  useful for spatial regression because the region contains strong variation
+  in housing values, education, density, age, and neighborhood socioeconomic
+  conditions across urban and suburban areas.
+</p>
+
+<p>
+  The analysis uses 2023 ACS 5 year estimates from the U.S. Census Bureau.
+  Variables were selected to match Walker’s spatial regression example as
+  closely as possible while applying the analysis to a different metropolitan
+  area.
+</p>
+```
+
+  </div>
+
+  <div class="section">
+
+```
+<h2>1. Geographically Weighted Regression</h2>
+
+<p>
+  I performed a geographically weighted regression (GWR) using median home
+  value as the dependent variable. The explanatory variables included median
+  rooms, percent college educated, percent foreign born, percent white,
+  median age, median structure age, percent owner-occupied housing,
+  population density, and total population.
+</p>
+
+<p>
+  The map below visualizes the local R² values from the GWR model using the
+  ColorBrewer YlOrRd color palette.
+</p>
+
+<p class="caption">
+  Figure 1. Geographically Weighted Regression Local R² Values
+</p>
+
+<img
+  src="figures/figure1_gwr_income_map.png"
+  alt="Geographically weighted regression map"
+>
+
+<p>
+  The geographically weighted regression map shows that the model performs
+  differently across the Seattle metropolitan area. Higher local R² values
+  indicate neighborhoods where the explanatory variables better predict
+  median home value. Lower values suggest that other factors may influence
+  housing values in those areas. Stronger model performance appears in parts
+  of the urban core and several suburban areas, while weaker relationships
+  occur in outer portions of the metropolitan area. These results show that
+  relationships between socioeconomic characteristics and housing values are
+  spatially uneven across the Seattle region.
+</p>
+```
+
+  </div>
+
+  <div class="section">
+
+```
+<h2>2. K-Means Cluster Analysis</h2>
+
+<p>
+  I also performed a k-means cluster analysis using the same geography and
+  variables as the GWR model. The clustering analysis grouped census tracts
+  into six clusters based on similar socioeconomic and housing
+  characteristics. A qualitative ColorBrewer palette was used for visualization.
+</p>
+
+<p class="caption">
+  Figure 2. K-Means Cluster Analysis of Seattle Census Tracts
+</p>
+
+<img
+  src="figures/figure2_kmeans_cluster_map.png"
+  alt="K-means cluster map"
+>
+
+<p>
+  The k-means cluster map groups neighborhoods with similar demographic and
+  housing characteristics across the Seattle metropolitan area. Some
+  clusters are concentrated in dense urban areas, while others are more
+  common in suburban and outer tracts. The map suggests that neighborhoods
+  in the Seattle region can be grouped according to shared patterns of
+  education, housing value, ownership rates, density, and population
+  characteristics. While the clusters simplify complex data into categories,
+  they still highlight meaningful spatial differences across the metropolitan
+  area.
+</p>
+```
+
+  </div>
+
+  <div class="section">
+
+```
+<h2>Conclusion</h2>
+
+<p>
+  Together, the geographically weighted regression and k-means cluster
+  analyses demonstrate that socioeconomic and housing characteristics vary
+  substantially across the Seattle metropolitan area. The GWR model focuses
+  on local variation in statistical relationships, while the k-means
+  analysis groups neighborhoods with similar overall characteristics. Both
+  methods show that spatial patterns in Seattle are highly uneven and
+  geographically structured.
+</p>
+```
+
+  </div>
+
+</body>
+</html>
